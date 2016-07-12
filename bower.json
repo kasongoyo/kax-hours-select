@@ -3,12 +3,11 @@
     "authors": [
         "kasongoyo <kasongoyo@gmail.com>"
     ],
-    "version":"0.0.2",
+    "version":"0.0.3",
     "appPath": "dist",
     "description": "Angular UI component to select hours",
     "main": [
-        "dist/kax_hours_select.js",
-        "dist/kax_template_cache.js",
+        "dist/kax_hours_select_tpls.js",
         "dist/kax_hours_select.css"
     ],
     "keywords": [

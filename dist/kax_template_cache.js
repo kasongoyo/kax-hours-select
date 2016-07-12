@@ -1,4 +1,5 @@
-angular.module('kaxHoursSelect').run(['$templateCache', function($templateCache) {
+angular.module('kaxHoursSelect')
+.run(['$templateCache', function($templateCache) {
   'use strict';
 
   $templateCache.put('day-field.html',
