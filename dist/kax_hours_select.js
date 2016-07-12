@@ -6,11 +6,11 @@
         .directive('kaxHoursSelect', function() {
             return {
                 templateUrl: 'kax-hours-select.html',
-                restrict:'AE',
-                scope:{
-                  selectedHours:'='
+                restrict: 'AE',
+                scope: {
+                    selectedHours: '='
                 },
-                bindToController:true,
+                bindToController: true,
                 controller: function() {
                     var self = this;
                     self.applyToAll = false;

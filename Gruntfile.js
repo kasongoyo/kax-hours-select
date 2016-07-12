@@ -14,7 +14,8 @@ module.exports = function(grunt) {
 
     // Automatically load required Grunt tasks
     require('jit-grunt')(grunt, {
-        cdnify: 'grunt-google-cdn'
+        cdnify: 'grunt-google-cdn',
+        ngtemplates: 'grunt-angular-templates'
     });
 
     // Configurable paths for the application
@@ -45,7 +46,7 @@ module.exports = function(grunt) {
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 },
-                files: ['<%= yeoman.app %>/{,**/}*.html']
+                files: ['{,**/}*.html']
             },
             jsTest: {
                 files: ['test/spec/{,**/}*.js'],
@@ -81,7 +82,7 @@ module.exports = function(grunt) {
                                 '/bower_components',
                                 connect.static('./bower_components')
                             ),
-                            connect.static(appConfig.app)
+                            connect.static('./')
                         ];
                     }
                 }
@@ -148,6 +149,24 @@ module.exports = function(grunt) {
             }
         },
 
+        ngtemplates: {
+            dist: {
+                options: {
+                    module: 'kaxHoursSelect'
+                },
+                cwd: '<%= yeoman.app %>',
+                src: '{,**/}*.html',
+                dest: '<%= yeoman.app %>/kax_template_cache.js'
+            }
+        },
+
+        // Empties folders to start fresh
+        clean: {
+            dist: {
+                src: '<%= yeoman.app %>/kax_template_cache.js'
+            }
+        },
+
         // Test settings
         karma: {
             dist: {
@@ -163,7 +182,14 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('default', [
+        'clean',
+        'ngtemplates',
         'connect:livereload',
         'watch'
+    ]);
+
+    grunt.registerTask('build', [
+        'clean',
+        'ngtemplates'
     ]);
 };
