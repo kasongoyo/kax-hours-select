@@ -1,0 +1,33 @@
+{
+  "name": "kax-hours-select-directive",
+  "authors": [
+    "kasongoyo <kasongoyo@gmail.com>"
+  ],
+  "appPath": "dist",
+  "description": "Angular UI component to select hours",
+  "main": [
+    "dist/kax_hours_select.js",
+    "dist/kax_hours_select.css"
+  ],
+  "keywords": [
+    "'Hours",
+    "Select'"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "allmighty-autocomplete": "*",
+    "angular": "angularjs#1.5.7"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.5.7"
+  }
+}

@@ -1,0 +1,64 @@
+/* Styles go here */
+
+.autocomplete {
+  width: 85px;
+  display: inline-block;
+}
+
+.autocomplete ul {
+  border: none;
+  padding-left: 0px;
+}
+
+
+/* .autocomplete li{
+  padding-left:0;
+} */
+
+.autocomplete input {
+  padding: 0;
+}
+
+.hour-field {
+  margin-bottom: 10px;
+}
+
+.day-field ul {
+  padding-left: 0px;
+  list-style: none;
+}
+
+.day-field li {
+  margin-right: 1px;
+  display: inline-block;
+}
+
+.day-selected {
+  color: #fff;
+  background: green;
+  border: 2px solid green;
+}
+
+.kax-hour-select {
+  width:280px;
+}
+
+
+.inline-field input,
+.inline-field label {
+  display: inline-block;
+  margin-bottom: 0;
+  /* I added this after I posted my reply */
+  vertical-align: middle;
+  /* Fixes any weird issues in Firefox and IE */
+}
+
+
+.action-row div{
+  display:inline-block;
+}
+
+.action-row .right-side {
+  float:right;
+  padding-right:10px;
+}
