@@ -47,7 +47,7 @@
 }
 
 .kax-hour-select {
-    width: 280px;
+    width: 300px;
 }
 
 .inline-field input,
@@ -63,7 +63,11 @@
     display: inline-block;
 }
 
-.action-row .right-side {
-    float: right;
-    padding-right: 10px;
+.action-row .right-side, .action-row .left-side {
+    display: inline-block;
+    float: left;
+}
+
+.action-row .left-side {
+    width: 60%;
 }
