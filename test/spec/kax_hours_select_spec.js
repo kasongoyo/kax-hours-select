@@ -3,15 +3,13 @@
 
     describe('Directive: Hours select', function() {
 
-    	   //load templates used by this directive
+        //load templates used by this directive
         beforeEach(angular.mock.module('kax.templates'));
 
         // load the directive's module
         beforeEach(angular.mock.module('kaxHoursSelect'));
 
-        var element,
-            scope;
-
+        var element,scope, kaxHoursSelectCtrl;
         beforeEach(inject(function($rootScope, $compile) {
             scope = $rootScope.$new();
             element = angular.element('<kax-hours-select></kax-hours-select>');
