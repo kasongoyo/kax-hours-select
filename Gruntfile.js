@@ -37,7 +37,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['<%= yeoman.app %>/{,**/}*.js'],
-                tasks: [ 'ngtemplates','newer:jshint:all', 'newer:jscs:all'],
+                tasks: ['ngtemplates', 'newer:jshint:all', 'newer:jscs:all'],
                 options: {
                     livereload: '<%= connect.options.livereload %>'
                 }
@@ -163,7 +163,16 @@ module.exports = function(grunt) {
         // Empties folders to start fresh
         clean: {
             dist: {
-                src: '<%= yeoman.app %>/kax_template_cache.js'
+                src: ['<%= yeoman.app %>/kax_template_cache.js',
+                '<%= yeoman.app %>/kax_hours_select_tpls.js']
+            }
+        },
+
+        //concat
+        concat: {
+            dist:{
+                src:['<%= yeoman.app %>/kax_hours_select.js','<%= yeoman.app %>/kax_template_cache.js'],
+                dest:'<%= yeoman.app %>/kax_hours_select_tpls.js'
             }
         },
 
@@ -184,12 +193,14 @@ module.exports = function(grunt) {
     grunt.registerTask('default', [
         'clean',
         'ngtemplates',
+        'concat',
         'connect:livereload',
         'watch'
     ]);
 
     grunt.registerTask('build', [
         'clean',
-        'ngtemplates'
+        'ngtemplates',
+        'concat'
     ]);
 };
