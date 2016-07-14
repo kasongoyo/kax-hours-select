@@ -8,7 +8,9 @@
                 templateUrl: 'kax-hours-select.html',
                 restrict: 'AE',
                 scope: {
-                    selectedHours: '='
+                    selectedHours: '=',
+                    fromLabel: '@',
+                    toLabel: '@'
                 },
                 bindToController: true,
                 controller: function() {
@@ -46,12 +48,8 @@
             return {
                 restrict: 'AE',
                 require: ['^kaxHoursSelect', 'hourField'],
-                scope: {
-                    fromLabel: '@',
-                    toLabel: '@'
-                },
+                scope: {},
                 templateUrl: 'hour-field.html',
-                bindToController: true,
                 controllerAs: 'hourCtrl',
                 controller: function() {
                     var self = this;
@@ -87,6 +85,8 @@
                 link: function(scope, elem, attrs, ctrls) {
                     var kaxHoursSelectCtrl = ctrls[0];
                     var hourFieldCtrl = ctrls[1];
+                    hourFieldCtrl.fromLabel = kaxHoursSelectCtrl.fromLabel || 'From';
+                    hourFieldCtrl.toLabel = kaxHoursSelectCtrl.toLabel || 'To';
 
                     var input = elem.find('input');
                     input.on('keypress', function(event) {
@@ -132,7 +132,9 @@
 
                     function selectAll(isSelectAll) {
                         if (isSelectAll) {
-                            self.selectedDays = self.days;
+                            self.selectedDays = self.days.map(function(day) {
+                                return day;
+                            });
                         } else {
                             self.selectedDays = [];
                         }
@@ -142,7 +144,7 @@
                         var exist = self.selectedDays.some(function(value) {
                             return day === value;
                         });
-                        return exist ? 'day-selected' : ' ';
+                        return exist ? 'day-selected' : '';
                     }
 
                     function selectDay(day) {
@@ -183,6 +185,9 @@
                         var result = dayFieldCtrl.selectedDays.length;
                         return result;
                     }, function(current, previous) {
+                        if (dayFieldCtrl.selectedDays.length !== dayFieldCtrl.days.length) {
+                            kaxHoursSelectCtrl.applyToAll = false;
+                        }
                         if (current !== previous) {
                             kaxHoursSelectCtrl.days = dayFieldCtrl.selectedDays;
                         }

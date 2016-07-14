@@ -12,8 +12,14 @@
   <link rel="stylesheet" href="dist/kax_hours_select.css" />
 </head>
 
-<body ng-app="kaxHoursSelect">
-  <kax-hours-select selectedHours=""></kax-hours-select>
+<body ng-app="kaxHoursSelect" ng-controller="MainCtrl">
+  <kax-hours-select selected-hours="selectedHours"></kax-hours-select>
+ <script>
+ 	angular.module('kaxHoursSelect')
+ 	.controller('MainCtrl', ['$scope', function ($scope) {
+ 		$scope.selectedHours = []
+ 	}])
+ </script>
 </body>
 
 </html>

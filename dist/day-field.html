@@ -1,7 +1,9 @@
 <div class="day-field">
   <ul>
-    <li ng-repeat="day in dayCtrl.days">
-      <button ng-class="dayCtrl.isSelected(day)" ng-click="dayCtrl.selectDay(day)">{{day}}</button>
+    <li ng-repeat="day in dayCtrl.days" >
+      <button  ng-class="dayCtrl.isSelected(day)" 
+      ng-click="dayCtrl.selectDay(day)"
+      >{{day}}</button>
     </li>
   </ul>
 </div>
