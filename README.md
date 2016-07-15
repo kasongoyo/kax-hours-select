@@ -18,3 +18,5 @@ Currently use git link to install
 - Add all test required.
 - Improve READMe to be more useful
 - Publish to the bower community
+- Enable apply all only when hours are selected
+- When type 1 or 2 then returned list should include all hours that have 1 or 2 in it.

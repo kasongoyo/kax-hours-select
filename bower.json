@@ -3,7 +3,7 @@
     "authors": [
         "kasongoyo <kasongoyo@gmail.com>"
     ],
-    "version":"0.0.7",
+    "version":"0.0.8",
     "appPath": "dist",
     "description": "Angular UI component to select hours",
     "main": [

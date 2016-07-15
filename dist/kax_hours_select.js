@@ -8,7 +8,7 @@
                 templateUrl: 'kax-hours-select.html',
                 restrict: 'AE',
                 scope: {
-                    selectedHours: '=',
+                    onClickAdd: '&',
                     fromLabel: '@',
                     toLabel: '@'
                 },
@@ -31,14 +31,16 @@
                     }
 
                     function addHours() {
+                        var selectedHours = [];
                         self.days.forEach(function(day) {
                             var hour = {
                                 day: day,
                                 from: self.fromHr,
                                 to: self.toHr
                             };
-                            self.selectedHours.push(hour);
+                            selectedHours.push(hour);
                         });
+                        self.onClickAdd({selectedHours:selectedHours});
                     }
                 },
                 controllerAs: 'kaxHoursSelectCtrl'
