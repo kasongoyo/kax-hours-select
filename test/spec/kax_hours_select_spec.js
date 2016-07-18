@@ -34,14 +34,26 @@
             expect(element.find('day-field')).to.exist;
         });
 
+
         it('should call onClickAdd(selectedHours) when add button is clicked', function() {
             kaxHoursSelectCtrl.fromHr = '8:00 am';
             kaxHoursSelectCtrl.toHr = '8:00 pm';
             kaxHoursSelectCtrl.days = ['Mon', 'Tue'];
-            kaxHoursSelectCtrl.addHours();
+            // click add button
+            element.find('button').triggerHandler('click');
             expect(scope.onAdd).to.have.been.called();
             expect(scope.selectedHours).to.exist;
             expect(scope.selectedHours).not.to.be.empty;
+        });
+
+        it('should clean selected hours reference after executing onClickAdd() function', function() {
+            kaxHoursSelectCtrl.fromHr = '8:00 am';
+            kaxHoursSelectCtrl.toHr = '8:00 pm';
+            kaxHoursSelectCtrl.days = ['Mon', 'Tue'];
+            kaxHoursSelectCtrl.addHours();
+            expect(kaxHoursSelectCtrl.days).to.be.empty;
+            expect(kaxHoursSelectCtrl.fromHr).to.be.undefined;
+            expect(kaxHoursSelectCtrl.toHr).to.be.undefined;
         });
     });
 })();

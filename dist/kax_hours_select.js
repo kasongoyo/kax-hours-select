@@ -41,6 +41,10 @@
                             selectedHours.push(hour);
                         });
                         self.onClickAdd({selectedHours:selectedHours});
+                        //remove reference of the selected hours
+                        self.days = [];
+                        self.fromHr = undefined;
+                        self.toHr = undefined;
                     }
                 },
                 controllerAs: 'kaxHoursSelectCtrl'
