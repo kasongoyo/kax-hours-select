@@ -10,7 +10,9 @@
                 scope: {
                     onClickAdd: '&',
                     fromLabel: '@',
-                    toLabel: '@'
+                    toLabel: '@',
+                    fromNgModel:'@',
+                    toNgModel:'@'
                 },
                 bindToController: true,
                 controller: function() {
@@ -33,11 +35,10 @@
                     function addHours() {
                         var selectedHours = [];
                         self.days.forEach(function(day) {
-                            var hour = {
-                                day: day,
-                                from: self.fromHr,
-                                to: self.toHr
-                            };
+                            var hour = {};
+                            hour.day = day;
+                            hour[self.fromNgModel] = self.fromHr;
+                            hour[self.toNgModel] = self.toHr;
                             selectedHours.push(hour);
                         });
                         self.onClickAdd({ selectedHours: selectedHours });

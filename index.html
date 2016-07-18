@@ -12,11 +12,12 @@
 </head>
 
 <body ng-app="kaxHoursSelect" ng-controller="MainCtrl">
-  <kax-hours-select on-click-add="onClickAdd"></kax-hours-select>
+  <kax-hours-select on-click-add="onClickAdd(selectedHours)" from-ng-model='open', to-ng-model="close"></kax-hours-select>
  <script>
  	angular.module('kaxHoursSelect')
  	.controller('MainCtrl', ['$scope', function ($scope) {
  		$scope.onClickAdd = function(selectedHours){
+ 			console.log(selectedHours);
  			$scope.selectedHours = selectedHours;
  		}
  	}])
