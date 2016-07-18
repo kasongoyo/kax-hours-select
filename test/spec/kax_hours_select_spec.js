@@ -34,6 +34,13 @@
             expect(element.find('day-field')).to.exist;
         });
 
+        it('hourField and dayField controller should exist', function() {
+            var hourFieldCtrl = element.find('hour-field').controller('hourField');
+            var dayFieldCtrl = element.find('day-field').controller('dayField');
+            expect(hourFieldCtrl).to.exist;
+            expect(dayFieldCtrl).to.exist;
+        });
+
 
         it('should call onClickAdd(selectedHours) when add button is clicked', function() {
             kaxHoursSelectCtrl.fromHr = '8:00 am';
@@ -50,10 +57,24 @@
             kaxHoursSelectCtrl.fromHr = '8:00 am';
             kaxHoursSelectCtrl.toHr = '8:00 pm';
             kaxHoursSelectCtrl.days = ['Mon', 'Tue'];
-            kaxHoursSelectCtrl.addHours();
+            // click add button
+            element.find('button').triggerHandler('click');
             expect(kaxHoursSelectCtrl.days).to.be.empty;
             expect(kaxHoursSelectCtrl.fromHr).to.be.undefined;
             expect(kaxHoursSelectCtrl.toHr).to.be.undefined;
+        });
+
+        it('should clean references of hourField and dayField as well after onClickAdd', function() {
+            kaxHoursSelectCtrl.fromHr = '8:00 am';
+            kaxHoursSelectCtrl.toHr = '8:00 pm';
+            kaxHoursSelectCtrl.days = ['Mon', 'Tue'];
+            var hourFieldCtrl = element.find('hour-field').controller('hourField');
+            var dayFieldCtrl = element.find('day-field').controller('dayField');
+            // click add button
+            element.find('button').triggerHandler('click');
+            expect(dayFieldCtrl.selectedDays).to.be.empty;
+            expect(hourFieldCtrl.fromHour).to.be.undefined;
+            expect(hourFieldCtrl.toHour).to.be.undefined;
         });
     });
 })();

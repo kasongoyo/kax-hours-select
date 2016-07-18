@@ -40,7 +40,7 @@
                             };
                             selectedHours.push(hour);
                         });
-                        self.onClickAdd({selectedHours:selectedHours});
+                        self.onClickAdd({ selectedHours: selectedHours });
                         //remove reference of the selected hours
                         self.days = [];
                         self.fromHr = undefined;
@@ -100,6 +100,24 @@
                             event.preventDefault();
                         }
                     });
+                    
+                    //This help to propagate hour changes initiated from kaxHoursSelectCtrl
+                    scope.$watch(function() {
+                        return kaxHoursSelectCtrl.fromHr;
+                    }, function(newValue, oldValue) {
+                        if (newValue !== oldValue && newValue === undefined) {
+                            hourFieldCtrl.fromHour = undefined;
+                        }
+                    });
+
+                    //This help to propagate hour changes initiated from kaxHoursSelectCtrl
+                    scope.$watch(function() {
+                        return kaxHoursSelectCtrl.toHr;
+                    }, function(newValue, oldValue) {
+                        if (newValue !== oldValue && newValue === undefined) {
+                            hourFieldCtrl.toHour = undefined;
+                        }
+                    })
 
                     scope.$watch(function() {
                         return hourFieldCtrl.fromHour;
@@ -186,10 +204,18 @@
                         }
                     });
 
+                    //This help to propagate days changes initiated from kaxHoursSelectCtrl
+                    scope.$watch(function() {
+                        return kaxHoursSelectCtrl.days.length;
+                    }, function(newValue, oldValue) {
+                        if (newValue !== oldValue && newValue === 0) {
+                            dayFieldCtrl.selectedDays = [];
+                        }
+                    });
+
                     //sync days selected
                     scope.$watch(function() {
-                        var result = dayFieldCtrl.selectedDays.length;
-                        return result;
+                        return dayFieldCtrl.selectedDays.length;
                     }, function(current, previous) {
                         if (dayFieldCtrl.selectedDays.length !== dayFieldCtrl.days.length) {
                             kaxHoursSelectCtrl.applyToAll = false;
