@@ -1,28 +1,39 @@
 /* Styles go here */
 
-.autocomplete {
+div.autocomplete.hour-autocomplete {
     width: 95px;
     display: inline-block;
 }
 
-.autocomplete ul {
+
+/*.autocomplete {
+    width: 95px;
+    display: inline-block;
+}*/
+
+
+/*.autocomplete ul {
     border: none;
     padding-left: 0px;
     box-shadow: 0 1px 2px rgba(0,0,0,.25),0 0 1px rgba(0,0,0,.35);
+}*/
+
+.hour-autocomplete ul {
+    border: none;
+    padding-left: 0px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .25), 0 0 1px rgba(0, 0, 0, .35);
 }
 
-
- .autocomplete li{
-  padding:7px 10px;
-  width:auto;
-} 
-
-.autocomplete li.active{
-  width: auto;
+.hour-autocomplete li {
+    padding: 7px 10px;
+    width: auto;
 }
 
+.hour-autocomplete li.active {
+    width: auto;
+}
 
-.autocomplete input {
+.hour-autocomplete input {
     padding: 0;
 }
 
@@ -63,7 +74,8 @@
     display: inline-block;
 }
 
-.action-row .right-side, .action-row .left-side {
+.action-row .right-side,
+.action-row .left-side {
     display: inline-block;
     float: left;
 }

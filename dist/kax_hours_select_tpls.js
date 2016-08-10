@@ -118,7 +118,7 @@
                         if (newValue !== oldValue && newValue === undefined) {
                             hourFieldCtrl.toHour = undefined;
                         }
-                    })
+                    });
 
                     scope.$watch(function() {
                         return hourFieldCtrl.fromHour;
@@ -249,9 +249,9 @@ angular.module('kaxHoursSelect').run(['$templateCache', function($templateCache)
   $templateCache.put('hour-field.html',
     "<div class=\"hour-field\">\n" +
     "    <span id=\"fromHour\">{{hourCtrl.fromLabel}}</span>&nbsp;\n" +
-    "    <autocomplete data=\"hourCtrl.hours\" ng-model=\"hourCtrl.fromHour\" attr-placeholder=\"hh:mm\" on-type=\"hourCtrl.updateHours\"></autocomplete>\n" +
+    "    <autocomplete attr-class=\"hour-autocomplete\" data=\"hourCtrl.hours\" ng-model=\"hourCtrl.fromHour\" attr-placeholder=\"hh:mm\" on-type=\"hourCtrl.updateHours\"></autocomplete>\n" +
     "    &nbsp;&nbsp;<span id=\"toHour\">{{hourCtrl.toLabel}}</span> &nbsp;\n" +
-    "    <autocomplete data=\"hourCtrl.hours\" ng-model=\"hourCtrl.toHour\" attr-placeholder=\"hh:mm\" on-type=\"hourCtrl.updateHours\"></autocomplete>\n" +
+    "    <autocomplete attr-class=\"hour-autocomplete\" data=\"hourCtrl.hours\" ng-model=\"hourCtrl.toHour\" attr-placeholder=\"hh:mm\" on-type=\"hourCtrl.updateHours\"></autocomplete>\n" +
     "</div>\n"
   );
 

@@ -118,7 +118,7 @@
                         if (newValue !== oldValue && newValue === undefined) {
                             hourFieldCtrl.toHour = undefined;
                         }
-                    })
+                    });
 
                     scope.$watch(function() {
                         return hourFieldCtrl.fromHour;

@@ -1,6 +1,6 @@
 <div class="hour-field">
     <span id="fromHour">{{hourCtrl.fromLabel}}</span>&nbsp;
-    <autocomplete data="hourCtrl.hours" ng-model="hourCtrl.fromHour" attr-placeholder="hh:mm" on-type="hourCtrl.updateHours"></autocomplete>
+    <autocomplete attr-class="hour-autocomplete" data="hourCtrl.hours" ng-model="hourCtrl.fromHour" attr-placeholder="hh:mm" on-type="hourCtrl.updateHours"></autocomplete>
     &nbsp;&nbsp;<span id="toHour">{{hourCtrl.toLabel}}</span> &nbsp;
-    <autocomplete data="hourCtrl.hours" ng-model="hourCtrl.toHour" attr-placeholder="hh:mm" on-type="hourCtrl.updateHours"></autocomplete>
+    <autocomplete attr-class="hour-autocomplete" data="hourCtrl.hours" ng-model="hourCtrl.toHour" attr-placeholder="hh:mm" on-type="hourCtrl.updateHours"></autocomplete>
 </div>
