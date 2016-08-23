@@ -13,7 +13,8 @@
                     fromLabel: '@',
                     toLabel: '@',
                     fromNgModel: '@',
-                    toNgModel: '@'
+                    toNgModel: '@',
+                    kaxDisableAdd: '='
                 },
                 bindToController: true,
                 controller: function() {
@@ -277,7 +278,7 @@ angular.module('kaxHoursSelect').run(['$templateCache', function($templateCache)
     "            <span>Apply to all days</span>\n" +
     "        </div>\n" +
     "        <div class=\"right-side\">\n" +
-    "            <button class=\"kaxAddHours\" ng-disabled=\"kaxHoursSelectCtrl.cannotAddHour()\" ng-click=\"kaxHoursSelectCtrl.addHours()\">Add</button>\n" +
+    "            <button class=\"kaxAddHours\" ng-disabled=\"kaxHoursSelectCtrl.cannotAddHour() || kaxHoursSelectCtrl.kaxDisableAdd\" ng-click=\"kaxHoursSelectCtrl.addHours()\">Add</button>\n" +
     "            <button class=\"kaxCancel\" ng-click=\"kaxHoursSelectCtrl.cancel()\">Cancel</button>\n" +
     "        </div>\n" +
     "    </div>\n" +

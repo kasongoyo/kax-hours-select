@@ -13,7 +13,8 @@
                     fromLabel: '@',
                     toLabel: '@',
                     fromNgModel: '@',
-                    toNgModel: '@'
+                    toNgModel: '@',
+                    kaxDisableAdd: '='
                 },
                 bindToController: true,
                 controller: function() {

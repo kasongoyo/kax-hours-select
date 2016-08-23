@@ -2,26 +2,33 @@
 <html>
 
 <head>
-  <script src="bower_components/angular/angular.min.js"></script>
-  <!-- autocomplete files -->
-   <script src="bower_components/allmighty-autocomplete/script/autocomplete.js"></script>
-  <script src="dist/kax_hours_select_tpls.js"></script>
-  
-  <link rel="stylesheet" href="bower_components/allmighty-autocomplete/style/autocomplete.css">
-  <link rel="stylesheet" href="dist/kax_hours_select.css" />
+    <script src="bower_components/angular/angular.min.js"></script>
+    <!-- autocomplete files -->
+    <script src="bower_components/allmighty-autocomplete/script/autocomplete.js"></script>
+    <script src="dist/kax_hours_select_tpls.js"></script>
+    <link rel="stylesheet" href="bower_components/allmighty-autocomplete/style/autocomplete.css">
+    <link rel="stylesheet" href="dist/kax_hours_select.css" />
 </head>
 
 <body ng-app="kaxHoursSelect" ng-controller="MainCtrl">
-  <kax-hours-select on-click-add="onClickAdd(selectedHours)" from-ng-model='open', to-ng-model="close"></kax-hours-select>
- <script>
- 	angular.module('kaxHoursSelect')
- 	.controller('MainCtrl', ['$scope', function ($scope) {
- 		$scope.onClickAdd = function(selectedHours){
- 			console.log(selectedHours);
- 			$scope.selectedHours = selectedHours;
- 		}
- 	}])
- </script>
+    <div>
+        <kax-hours-select on-click-add="onClickAdd(selectedHours)" on-click-cancel="onCancel()" kax-disable-add="disable" from-ng-model='open' , to-ng-model="close"></kax-hours-select>
+    </div>
+    <div style="clear:both; margin-top:50px">
+        <input type="checkbox" ng-model="disable">toggle add disable</input>
+        <p>The disabled is {{disable}}</p>
+    </div>
+    <script>
+    angular.module('kaxHoursSelect')
+        .controller('MainCtrl', ['$scope', function($scope) {
+            $scope.onClickAdd = function(selectedHours) {
+                    console.log(selectedHours);
+                    $scope.selectedHours = selectedHours;
+                }
+                // $scope.disable = true;
+            $scope.onCancel = function() {}
+        }])
+    </script>
 </body>
 
 </html>

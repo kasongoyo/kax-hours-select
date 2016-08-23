@@ -7,7 +7,7 @@
             <span>Apply to all days</span>
         </div>
         <div class="right-side">
-            <button class="kaxAddHours" ng-disabled="kaxHoursSelectCtrl.cannotAddHour()" ng-click="kaxHoursSelectCtrl.addHours()">Add</button>
+            <button class="kaxAddHours" ng-disabled="kaxHoursSelectCtrl.cannotAddHour() || kaxHoursSelectCtrl.kaxDisableAdd" ng-click="kaxHoursSelectCtrl.addHours()">Add</button>
             <button class="kaxCancel" ng-click="kaxHoursSelectCtrl.cancel()">Cancel</button>
         </div>
     </div>
