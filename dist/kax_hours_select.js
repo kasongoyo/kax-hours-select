@@ -9,10 +9,11 @@
                 restrict: 'AE',
                 scope: {
                     onClickAdd: '&',
+                    onClickCancel: '&',
                     fromLabel: '@',
                     toLabel: '@',
-                    fromNgModel:'@',
-                    toNgModel:'@'
+                    fromNgModel: '@',
+                    toNgModel: '@'
                 },
                 bindToController: true,
                 controller: function() {
@@ -20,6 +21,7 @@
                     self.applyToAll = false;
                     self.addHours = addHours;
                     self.cannotAddHour = cannotAddHour;
+                    self.cancel = cancel;
                     //keep track of from hour at any poin of time
                     self.fromHr = undefined;
                     //keep track of to hour at any point of time
@@ -43,6 +45,15 @@
                         });
                         self.onClickAdd({ selectedHours: selectedHours });
                         //remove reference of the selected hours
+                        clean();
+                    }
+
+                    function cancel() {
+                        clean();
+                        self.onClickCancel();
+                    }
+
+                    function clean() {
                         self.days = [];
                         self.fromHr = undefined;
                         self.toHr = undefined;
@@ -101,7 +112,7 @@
                             event.preventDefault();
                         }
                     });
-                    
+
                     //This help to propagate hour changes initiated from kaxHoursSelectCtrl
                     scope.$watch(function() {
                         return kaxHoursSelectCtrl.fromHr;
