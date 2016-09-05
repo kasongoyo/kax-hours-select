@@ -11,10 +11,10 @@
 </head>
 
 <body ng-app="kaxHoursSelect" ng-controller="MainCtrl">
-    <div>
+    <div style="background-color: #fafafa" >
         <kax-hours-select on-click-add="onClickAdd(selectedHours)" on-click-cancel="onCancel()" kax-disable-add="disable" from-ng-model='open' , to-ng-model="close"></kax-hours-select>
     </div>
-    <div style="clear:both; margin-top:50px">
+    <div style="margin-top:50px">
         <input type="checkbox" ng-model="disable">toggle add disable</input>
         <p>The disabled is {{disable}}</p>
     </div>

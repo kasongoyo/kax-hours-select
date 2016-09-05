@@ -270,18 +270,18 @@ angular.module('kaxHoursSelect').run(['$templateCache', function($templateCache)
 
   $templateCache.put('kax-hours-select.html',
     "<div class=\"kax-hour-select\">\n" +
-    "    <hour-field ></hour-field>\n" +
+    "    <hour-field></hour-field>\n" +
     "    <day-field></day-field>\n" +
-    "    <div class=\"action-row\">\n" +
-    "        <div class=\"left-side inline-field\">\n" +
+    "    <div style=\"display: table; width: 100%\">\n" +
+    "        <div style=\"display: table-cell;\" class=\"inline-field\">\n" +
     "            <input type=\"checkbox\" ng-model=\"kaxHoursSelectCtrl.applyToAll\" />\n" +
     "            <span>Apply to all days</span>\n" +
     "        </div>\n" +
-    "        <div class=\"right-side\">\n" +
+    "        <div style=\"display: table-cell; text-align: left;\">\n" +
     "            <button class=\"kaxAddHours\" ng-disabled=\"kaxHoursSelectCtrl.cannotAddHour() || kaxHoursSelectCtrl.kaxDisableAdd\" ng-click=\"kaxHoursSelectCtrl.addHours()\">Add</button>\n" +
     "            <button class=\"kaxCancel\" ng-click=\"kaxHoursSelectCtrl.cancel()\">Cancel</button>\n" +
     "        </div>\n" +
-    "    </div>\n" +
+    "    </div>  \n" +
     "</div>\n"
   );
 

@@ -59,6 +59,7 @@ div.autocomplete.hour-autocomplete {
 
 .kax-hour-select {
     width: 300px;
+    padding-bottom: 15px;
 }
 
 .inline-field input,
@@ -70,16 +71,3 @@ div.autocomplete.hour-autocomplete {
     /* Fixes any weird issues in Firefox and IE */
 }
 
-.action-row div {
-    display: inline-block;
-}
-
-.action-row .right-side,
-.action-row .left-side {
-    display: inline-block;
-    float: left;
-}
-
-.action-row .left-side {
-    width: 55%;
-}

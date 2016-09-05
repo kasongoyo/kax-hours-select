@@ -1,14 +1,14 @@
 <div class="kax-hour-select">
-    <hour-field ></hour-field>
+    <hour-field></hour-field>
     <day-field></day-field>
-    <div class="action-row">
-        <div class="left-side inline-field">
+    <div style="display: table; width: 100%">
+        <div style="display: table-cell;" class="inline-field">
             <input type="checkbox" ng-model="kaxHoursSelectCtrl.applyToAll" />
             <span>Apply to all days</span>
         </div>
-        <div class="right-side">
+        <div style="display: table-cell; text-align: left;">
             <button class="kaxAddHours" ng-disabled="kaxHoursSelectCtrl.cannotAddHour() || kaxHoursSelectCtrl.kaxDisableAdd" ng-click="kaxHoursSelectCtrl.addHours()">Add</button>
             <button class="kaxCancel" ng-click="kaxHoursSelectCtrl.cancel()">Cancel</button>
         </div>
-    </div>
+    </div>  
 </div>
